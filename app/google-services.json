@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "619529509141",
+    "firebase_url": "https://hablamundi.firebaseio.com",
+    "project_id": "hablamundi",
+    "storage_bucket": "hablamundi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619529509141:android:a366ce547a8a643aa0b11c",
+        "android_client_info": {
+          "package_name": "com.example.hablamundi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619529509141-94j9bseh3q6ei9tnif7r23iolvp0055l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyGdUgQu-tEuo1TNM_D_xQubf8ju5eaoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619529509141-94j9bseh3q6ei9tnif7r23iolvp0055l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
