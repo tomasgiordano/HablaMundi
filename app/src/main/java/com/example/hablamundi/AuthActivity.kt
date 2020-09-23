@@ -1,22 +1,23 @@
 package com.example.hablamundi
 
 
+import android.R
+import android.R.attr.*
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toDrawable
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_auth.*
-import kotlinx.android.synthetic.main.activity_auth.emailEditText
-import kotlinx.android.synthetic.main.activity_auth.passwordEditText
-import kotlinx.android.synthetic.main.activity_register.*
-import kotlin.concurrent.thread
+
 
 class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth)
+        setContentView(com.example.hablamundi.R.layout.activity_auth)
         setup()
     }
 
@@ -29,9 +30,12 @@ class AuthActivity : AppCompatActivity() {
 
         logInButton.setOnClickListener{
             if (emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()){
-                FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString(),passwordEditText.text.toString()).addOnCompleteListener{
+                FirebaseAuth.getInstance().signInWithEmailAndPassword(
+                    emailEditText.text.toString(),
+                    passwordEditText.text.toString()
+                ).addOnCompleteListener{
                     if(it.isSuccessful) {
-                        showHome(it.result?.user?.email ?:"", ProviderType.EmailPassword)
+                        showHome(it.result?.user?.email ?: "", ProviderType.EmailPassword)
                         txtError.visibility = View.INVISIBLE
                         emailEditText.setText("")
                         passwordEditText.setText("")
@@ -74,6 +78,9 @@ class AuthActivity : AppCompatActivity() {
             emailEditText.setText("tester@tester.com")
             passwordEditText.setText("555555")
         }
+
+        emailEditText
+
     }
 
     private fun showAlert()
@@ -86,7 +93,7 @@ class AuthActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun showHome(email: String,provider: ProviderType) {
+    private fun showHome(email: String, provider: ProviderType) {
         val homeIntent: Intent = Intent(this, HomeActivity::class.java).apply {
             putExtra("email", email)
             putExtra("provider", provider.name)
