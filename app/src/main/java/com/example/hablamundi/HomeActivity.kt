@@ -1,8 +1,13 @@
 package com.example.hablamundi
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.OrientationEventListener
+import android.view.WindowManager
+import androidx.core.view.marginTop
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_colors.*
 
@@ -17,11 +22,11 @@ var flagIdioma : String = "Ingles"
 var flag = 0
 var email : String? = ""
 
+
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
         //Setup
         val bundle = intent.extras
         email = bundle?.getString("email")
@@ -29,16 +34,23 @@ class HomeActivity : AppCompatActivity() {
         setup(email ?: "")
     }
 
+
     private fun setup(email: String)
     {
         title = "Home"
-        emailTextView.text = email
+        if(emailTextView!=null)
+        {
+            emailTextView.text = email
+        }
+
         setFlag()
         logOutButton.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
         }
+
+        onConfigurationChanged()
 
         buttonColors.setOnClickListener{
             showColors()
@@ -110,4 +122,10 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
+
+    @Override public fun onConfigurationChanged()
+    {
+
+    }
+
 }

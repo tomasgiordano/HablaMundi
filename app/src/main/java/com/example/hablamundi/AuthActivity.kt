@@ -4,6 +4,7 @@ package com.example.hablamundi
 import android.R
 import android.R.attr.*
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
@@ -18,6 +19,7 @@ class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.example.hablamundi.R.layout.activity_auth)
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setup()
     }
 
