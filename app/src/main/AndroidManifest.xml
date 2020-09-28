@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".AnimalsActivity"></activity>
+        <activity android:name=".NumbersActivity"></activity>
+        <activity android:name=".ColorsActivity"></activity>
         <activity android:name=".HomeActivity" />
         <activity android:name=".splashActivity">
             <intent-filter>
@@ -18,6 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".AuthActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
